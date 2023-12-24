@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for Code Pulse</title>
+    <!--Stylesheet-->
+    <style media="screen">
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+
+        header {
+            background-color: #11192e;
+            padding: 10px;
+            color: white;
+        }
+
+
+        body {
+            background-color: #080710;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .background {
+            width: 430px;
+            height: 520px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+        }
+
+        .forms-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px; /* Added margin for spacing */
+
+        }
+
+        form {
+            height: 520px;
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.13);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            padding: 50px 20px;
+        }
+
+        form * {
+            color: #ffffff;
+        }
+
+        form h3 {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 22px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label,
+        input {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        input {
+            height: 30px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            padding: 0 5px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        ::placeholder {
+            color: #e5e5e5;
+        }
+
+        button {
+            width: 100%;
+            background-color: #ffffff;
+            color: #080710;
+            padding: 10px 0;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .social {
+            margin-top: 30px;
+            display: flex;
+        }
+
+        .social div {
+            background: red;
+            width: 150px;
+            border-radius: 3px;
+            padding: 5px 10px 10px 5px;
+            background-color: rgba(255, 255, 255, 0.27);
+            color: #eaf0fb;
+            text-align: center;
+        }
+
+        .social div:hover {
+            background-color: rgba(255, 255, 255, 0.47);
+        }
+
+        .social .fb {
+            margin-left: 25px;
+        }
+
+        .social i {
+            margin-right: 4px;
+        }
+    </style>
+    <!-- Add your stylesheets and scripts here -->
+    <!----  <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #11192e;
+            padding: 10px;
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .nav-buttons {
+            margin-top: 20px;
+        }
+
+        .nav-buttons a {
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #000000;
+            color: white;
+            border-radius: 5px;
+        }
+    </style> -->
+</head>
+
+<body>
+    <header>
+        <h1>Register for Code Pulse</h1>
+    </header>
+    <main>
+        <div class="nav-buttons">
+            <a href="{% url 'home' %}">Home</a>
+        </div>
+
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+
+        <div class="forms-container">
+        <form action="" method="post">
+            {% csrf_token %} 
+            <h3>Signup Here</h3>
+    
+            <label for="username">Username</label>
+            <input type="text" placeholder="Username" name="username" id="username">
+    
+            <label for="email">Email</label>
+            <input type="email" placeholder="Email or Phone" name="email" id="email">
+    
+            <label for="password1">Password</label>
+            <input type="password" placeholder="Password" id="password1" name="password1">
+    
+    
+            <label for="password2">Confrom Password</label>
+            <input type="password" placeholder="Confrom Password" id="password2" name="password2">
+            <button type="submit">Signup</button>
+            
+            <a href="{% url 'login' %}" >i have already account</a>
+        </form>
+
+        <form method="post">
+            <h3>Login Here</h3>
+            {% csrf_token %} 
+            <label for="username">Username</label>
+            <input type="text" placeholder="Enter Username" id="username" name="username">
+    
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="pass">
+    
+            <button type="submit">Log In</button>
+            <a href="{% url 'login' %}">Create a account</a>
+        </form>
+
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+       

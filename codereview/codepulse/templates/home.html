@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Code Pulse</title>
+    {% load static %}  
+
+    <!-- stylesheets and scripts-->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #11192e;
+            padding: 10px;
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .nav-buttons {
+            margin-top: 20px;
+        }
+
+        .nav-buttons a {
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #000000;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Code Pulse</h1>
+    </header>
+    <main>
+        <img src="{% static 'img1.jpeg' %}" alt="Code Pulse Image">
+        <div class="nav-buttons">
+            <a href="{% url 'about' %}">More Information</a>
+            <a href="{% url 'register' %}">Get Started</a>
+        </div>
+    </main>
+
+</body>
+</html>
