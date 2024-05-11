@@ -15,11 +15,10 @@ CodePulse is an educational tool designed to help users understand web applicati
 
 ## Screenshots
 ![Home](https://github.com/DjenaSiabdellah/CodePulse/assets/73534772/32d058ea-4e06-436e-85da-bfa5b719dfb9)
+![Reg](https://github.com/DjenaSiabdellah/CodePulse/assets/73534772/1715654b-da47-4340-bc72-6cdbd7a5d0fb)
 ![login](https://github.com/DjenaSiabdellah/CodePulse/assets/73534772/f50d2bf3-18be-494c-9a23-e6075dfe7313)
 ![Scanner](https://github.com/DjenaSiabdellah/CodePulse/assets/73534772/43f6290c-5ebd-4e2f-a30d-aee2311adcd4)
 ![scanner-url](https://github.com/DjenaSiabdellah/CodePulse/assets/73534772/5e252b6f-aef8-42f2-bf4c-6d3c33d94bcc)
-![Reg](https://github.com/DjenaSiabdellah/CodePulse/assets/73534772/1715654b-da47-4340-bc72-6cdbd7a5d0fb)
-![login](https://github.com/DjenaSiabdellah/CodePulse/assets/73534772/e303abf7-7086-429f-b819-c6f0c029b2ef) 
 
 
 
