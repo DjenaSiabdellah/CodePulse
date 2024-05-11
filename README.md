@@ -14,9 +14,9 @@ CodePulse is an educational tool designed to help users understand web applicati
 - **Educational Content**: Dedicated pages for XSS, SQL injection, and CSRF that not only describe these vulnerabilities but also demonstrate them and discuss mitigation strategies.
 
 ## Screenshots
-![Home Page](url-to-homepage-screenshot.png)  <!-- Replace placeholder with actual URL -->
-![Scanner Page](url-to-scanner-screenshot.png)  <!-- Replace placeholder with actual URL -->
-![XSS Demonstration Page](url-to-xss-demo-screenshot.png)  <!-- Replace placeholder with actual URL -->
+![Home Page](Home.png) 
+![Scanner Page](Scanner.png)  
+![XSS Demonstration Page](reg.png)  <!-- Replace placeholder with actual URL -->
 
 ## Installation and Setup
 To get CodePulse running locally:
