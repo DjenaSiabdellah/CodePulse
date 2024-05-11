@@ -15,10 +15,24 @@ CodePulse is an educational tool designed to help users understand web applicati
 
 ## Screenshots
 ![Home](https://github.com/DjenaSiabdellah/CodePulse/assets/73534772/32d058ea-4e06-436e-85da-bfa5b719dfb9)
+
+- This is the CodePulse Home Page, the first page the users interacts with. 
+  
 ![Reg](https://github.com/DjenaSiabdellah/CodePulse/assets/73534772/1715654b-da47-4340-bc72-6cdbd7a5d0fb)
+
+- User must enter valid email, and fill in their credentials in order to create and activate an account with CodePulse.
+
 ![login](https://github.com/DjenaSiabdellah/CodePulse/assets/73534772/f50d2bf3-18be-494c-9a23-e6075dfe7313)
+
+- If user has an existing account, then use credentials of that account, must be valid. 
+
 ![Scanner](https://github.com/DjenaSiabdellah/CodePulse/assets/73534772/43f6290c-5ebd-4e2f-a30d-aee2311adcd4)
+
+- Users can enter their code snippers into this form and with the vulnerability detected, the user should be able to see a reported message of the vulnerability detect. 
+  
 ![scanner-url](https://github.com/DjenaSiabdellah/CodePulse/assets/73534772/5e252b6f-aef8-42f2-bf4c-6d3c33d94bcc)
+
+- Users can add in their URLs for their existing project, but needs to be runninh locally to detect the vulnerability otherwise error. 
 
 
 
