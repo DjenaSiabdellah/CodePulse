@@ -1,4 +1,4 @@
-# CodePulse: Web Application Security Demonstrator
+# CodePulse: Web Application Description 
 
 ## Introduction
 CodePulse is an educational tool designed to help users understand web application vulnerabilities, including Cross-Site Scripting (XSS), SQL Injection, and Cross-Site Request Forgery (CSRF). It features a practical, interactive platform where users can not only learn about these vulnerabilities but also test them in a controlled environment.
