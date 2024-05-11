@@ -1,0 +1,219 @@
+<!--Author: Djena Siabdellah
+    Description: The registration page allows users to create an account on CodePulse. 
+    It features a form for username, email, and password inputs, employing custom validation to 
+    ensure security standards are met. 
+
+    References
+    https://medium.com/geekculture/implement-django-user-registration-with-email-confirmation-31f0eefe976d
+    https://www.w3schools.com/html/html_forms.asp
+    https://www.w3schools.com/css/
+    https://i.gifer.com/7Ntk.gif
+    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for Code Pulse</title>
+    <!-- Stylesheets -->
+    <style media="screen">
+        /* Reset default padding and margin for all elements */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        /* Set body background properties and typography */
+        body {
+            background-color: #080710; /* Dark base color */
+            background-image: url(https://i.gifer.com/7Ntk.gif); /* Animated background GIF */
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+            background-size: cover; /* Ensure the background covers the entire viewport */
+            font-family: 'Poppins', sans-serif; /* Modern, readable font */
+            color: #fff; /* Text color set to white for contrast */
+            padding: 8% 8%; /* Padding around the content */
+            display: flex; /* Flex container for layout */
+            flex-direction: column; /* Organize children vertically */
+            justify-content: flex-start; /* Align children to the start of the vertical axis */
+            align-items: center; /* Center children horizontally */
+        }
+
+        /* Header styling for navigation */
+        header {
+          z-index: 999; /* header is above other content */
+          position: absolute; /* at the top of the viewport */
+          top: 0;
+          left: 0;
+          width: 100%; /* full width of the viewport */
+          display: flex; /* Flexbox for easy centering */
+          justify-content: center; /* Center items horizontally */
+          align-items: center; /* Center items vertically */
+          padding: 15px 20px; /* Padding inside the header */
+          background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for overlay effect */
+        }
+      
+        /* Styling for navigation list */
+        nav ul {
+          list-style: none; /* Remove list bullets */
+          display: flex; /* Display list items inline */
+          margin: 0; /* Remove default margin */
+          padding: 0; /* Remove default padding */
+        }
+      
+        /* Styling for navigation links */
+        nav ul li a {
+          color: #fff; /* White color for readability */
+          text-decoration: none; /* Remove underline from links */
+          padding: 15px 35px; /* Padding for larger click area */
+          cursor: pointer; /* Pointer cursor on hover */
+        }
+      
+        /* Hover effect for navigation links */
+        nav ul li a:hover {
+          background: rgba(255, 255, 255, 0.4); /* Lighten background on hover for visual feedback */
+        }
+
+        /* Main section styling for centering content */
+        main {
+            display: flex; /* Flex container to center child elements */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+        }
+
+        /* Container for forms with styling for background and layout */
+        .forms-container {
+            display: flex; /* Flex container to organize forms */
+            flex-direction: column; /* Stack forms vertically */
+            align-items: center; /* Center forms horizontally */
+            width: 300px; /* Fixed width for forms */
+            background-color: rgba(255, 255, 255, 0.13); /* Semi-transparent background for forms */
+            background-position: center; /* Center the background */
+            background-size: 100%; /* Background covers entire element */
+            border-radius: 10px; /* Rounded corners for aesthetic */
+            backdrop-filter: blur(10px); /* Blur effect for background styling */
+            border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6); /* Shadow for depth */
+            padding: 50px 20px; /* Internal padding */
+        }
+
+        /* Universal styling for form elements */
+        form * {
+            color: #ffffff; /* White text for consistency */
+        }
+
+        /* Header within form */
+        form h3 {
+            font-size: 18px; /* Moderate font size */
+            font-weight: 500; /* Medium weight for emphasis */
+            line-height: 22px; /* Spacing for readability */
+            text-align: center; /* Center alignment */
+            margin-bottom: 20px; /* Space below the header */
+        }
+
+        /* Label and input field styling */
+        label,
+        input {
+            display: block; /* Each element on a new line */
+            margin-bottom: 15px; /* Space below each element */
+        }
+
+        /* Input field specifics */
+        input {
+            height: 30px; /* Fixed height for uniform appearance */
+            width: 100%; /* Full width to fill the container */
+            background-color: rgba(255, 255, 255, 0.07); /* Slightly visible background */
+            border-radius: 3px; /* Softly rounded corners */
+            padding: 0 5px; /* Padding within the input field */
+            font-size: 14px; /* Readable font size */
+            font-weight: 300; /* Light weight for a modern look */
+        }
+
+        /* Placeholder text styling */
+        ::placeholder {
+            color: #e5e5e5; /* Light grey color for placeholders */
+        }
+
+        /* Button styling */
+        button {
+            width: 100%; /* Button spans the full width */
+            background-color: #ffffff; /* Bright background to stand out */
+            color: #080710; /* Dark text for contrast */
+            padding: 10px 0; /* Padding for a taller button */
+            font-size: 14px; /* Consistent font size with inputs */
+            font-weight: 600; /* Bold weight for button text */
+            border-radius: 5px; /* Rounded edges */
+            cursor: pointer; /* Cursor indicates the button is clickable */
+        }
+
+        /* Link styling */
+        a {
+            text-decoration: none; /* No underline to keep it clean */
+            color: #ffffff; /* White text for visibility */
+            text-align: center; /* Centered text */
+            margin-top: 20px; /* Space above the link */
+            font-size: 14px; /* Uniform font size with other text elements */
+        }
+
+        /* Hover effect for links */
+        a:hover {
+            color: #e5e5e5; /* Lighten the color on hover for feedback */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="menu-btn"></div> <!-- Placeholder for responsive menu button -->
+    <nav>
+      <ul>
+        <li><a href="{% url 'about' %}">More Information</a></li> <!-- Navigation link to the 'About' page -->
+        <li><a href="{% url 'home' %}">Home</a></li> <!-- Navigation link to the 'Home' page -->
+      </ul>
+    </nav>
+</header>
+<main>
+  <div class="background">
+      <div class="shape"></div> <!-- Decorative shapes within the form container -->
+      <div class="shape"></div>
+  </div>
+    <div class="forms-container">
+        <form method="post" action="{% url 'register' %}">
+            <h3>Register Here</h3> <!-- Form header for registration -->
+            {% csrf_token %} <!-- Security token for Django forms to prevent CSRF attacks -->
+            {{ form.non_field_errors }}
+            <div class="form-group">
+                <label for="username">Username:</label> <!-- Username field -->
+                <input type="text" id="username" name="username" autocomplete="username" placeholder="Choose a username" required>
+                {{ form.username.errors }} <!-- Display errors related to username field -->
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label> <!-- Email field -->
+                <input type="email" id="email" name="email" autocomplete="email" placeholder="Enter your email" required>
+                {{ form.email.errors }} <!-- Display errors related to email field -->
+            </div>
+            <div class="form-group">
+                <label for="password1">Password:</label> <!-- Password field -->
+                <input type="password" id="password1" name="password1" autocomplete="new-password" placeholder="Create a password" required>
+                {{ form.password1.errors }} <!-- Display errors related to password field -->
+            </div>
+            <div class="form-group">
+                <label for="password2">Confirm Password:</label> <!-- Password confirmation field -->
+                <input type="password" id="password2" name="password2" autocomplete="new-password" placeholder="Confirm your password" required>
+                {{ form.password2.errors }} <!-- Display errors related to password confirmation field -->
+            </div>
+            <button type="submit">Sign Up</button> <!-- Submission button -->
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p> <!-- Display messages or alerts to the user -->
+                {% endfor %}
+            </div>
+            {% endif %}
+        </form>
+        <a href="{% url 'login' %}">Already have an account? Login</a> <!-- Link to the login page -->
+    </div>
+</main>
+</body>
+</html>

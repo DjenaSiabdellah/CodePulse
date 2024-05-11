@@ -1,0 +1,119 @@
+<!--Author: Djena Siabdellah
+    Description: The about page provides detailed information about CodePulse, 
+    explaining its benefits, how it works, and the mission and vision of the project. 
+    It aims to inform users about the robust security tools available and future enhancements. 
+
+    References
+    https://www.softwaretestinghelp.com/cross-site-scripting-xss-attack-test/
+    https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+    https://owasp.org/www-community/attacks/SQL_Injection
+    https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
+    https://www.w3schools.com/css/
+    https://gifer.com/en/GYEI
+    https://i.gifer.com/7Ntk.gif
+    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <style>
+        body, html {
+            min-height: 100vh; /* minimum height of the viewport height, ensuring at least full screen height. */
+            width: 100%; /* full width of the viewport. */
+            background: url('https://i.gifer.com/7Ntk.gif') center no-repeat; /* Background image centered and not repeated. */
+            background-size: cover; /* ensures the background covers the entire element. */
+            background-attachment: fixed; /* keeps the background fixed during scrolling. */
+            display: flex; /* uses Flexbox layout to organize children elements. */
+            flex-direction: column; /* stacks child elements vertically. */
+            justify-content: center; /* centers children vertically in the container. */
+            align-items: center; /* centers children horizontally in the container. */
+            color: #fff; /* sets text color to white. */
+            padding: 0 8%; /* padding around the content, 0 on top/bottom and 8% on left/right. */
+            font-family: sans-serif; /* uses sans-serif typeface for text. */
+        }
+
+                
+        header {
+            z-index: 999; /* brings the header on top of other elements. */
+            position: absolute; /* positions the header absolutely relative to its first positioned ancestor. */
+            top: 0; /* aligns the header at the top of the container. */
+            left: 0; /* aligns the header at the left of the container. */
+            width: 100%; /* header spans the full width. */
+            display: flex; /* uses Flexbox layout to organize children elements. */
+            justify-content: center; /* centers children horizontally in the header. */
+            align-items: center; /* centers children vertically in the header. */
+            padding: 15px 20px; /* padding inside the header. */
+            background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background. */
+        }
+
+        nav ul {
+            list-style: none; /* removes bullet points from the list. */
+            display: flex; /* display list items in a row using Flexbox. */
+            margin: 0; /* removes default margin. */
+            padding: 0; /* removes default padding. */
+        }
+
+        nav ul li a {
+            color: #fff; /* text color for links is white. */
+            text-decoration: none; /* no underline for links. */
+            padding: 15px 35px; /* padding around links for better clickability. */
+            cursor: pointer; /* changes the mouse cursor to a pointer when hovered over links. */
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.4); /* adds a light white background on hover for visual effect. */
+        }
+
+        .content {
+            color: #fff; /* text color inside the content div is white. */
+            width: 70%; /* content width is 70% of its parent element. */
+            margin: 50px auto; /* centers the content horizontally and adds 50px margin on top/bottom. */
+            padding: 20px; /* padding inside the content div. */
+            background-color: rgba(0, 0, 0, 0.8); /* semi-transparent black background for the content div. */
+            border-radius: 10px; /* rounded corners for the content div. */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* subtle shadow for 3D effect. */
+        }
+
+        h1, h2 {
+            color: #fff; /* white text color for all headings (h1, h2). */
+        }
+
+        p {
+            margin: 20px 0; /* vertical margin for paragraphs. */
+            line-height: 1.6; /* spacing between lines in paragraphs. */
+        }
+    </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <!-- navigation tag for providing navigation links. -->
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'register' %}">Get Started</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="content">
+            <!-- div element to contain the main content of the page. -->
+            <h1>Why Choose CodePulse?</h1>
+            <!-- main heading of the content section. -->
+            <p>By integrating CodePulse into your development and security protocols, you benefit from an advanced suite of analytical tools that not only identify vulnerabilities but also provide detailed reports on each. These reports include severity ratings and actionable recommendations for mitigation, helping ensure that your applications adhere to the highest standards of security. The user-friendly interface of CodePulse ensures that it is accessible to users with various levels of expertise, making it an indispensable tool for anyone looking to enhance their application's security.</p>
+
+            <h2>How CodePulse Works</h2>
+            <p>To get started with CodePulse, users simply need to register an account, enter the URL of the web application they wish to scan (Must be running locally), or add in a code snippit of your code (copy and paste) and initiate the scanning process. The system then performs an exhaustive search for vulnerabilities, presenting the results in an easy-to-understand report that details potential security flaws and how to address them.</p>
+
+            <h2>Our Mission and Vision</h2>
+            <p>The inception of CodePulse was motivated by a desire to democratize access to robust web security tools. Our goal is to equip individuals and organizations with the means to defend against increasingly sophisticated cyber threats. Looking ahead, we are committed to expanding the capabilities of CodePulse by incorporating real-time vulnerability monitoring and adding support for additional web frameworks.</p>
+
+            <h2>Contact and Support</h2>
+            <p>For any inquiries, support requests, or feedback, please feel free to reach out to us at support@codepulse.com. or djenasiabdellah26@gmail.com We are dedicated to continually improving CodePulse and value your input highly.</p>
+        </div>
+    </body>
+    </html>
+

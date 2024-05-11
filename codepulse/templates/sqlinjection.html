@@ -1,0 +1,189 @@
+<!--Author: Djena Siabdellah
+    Description: This page explains SQL Injection attacks, the types of SQL Injection, 
+    and offers advice on prevention techniques to protect web applications from such 
+    vulnerabilities.
+
+    References
+    https://owasp.org/www-community/attacks/SQL_Injection"
+    https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
+    https://www.w3schools.com/css/
+    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding and Preventing SQL Injection</title>
+</head>
+
+<style>
+    /* Base styles for body and html, setting up the font and layout defaults */
+    body, html {
+            font-family: Arial, sans-serif; /* Sets a clean, professional font */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            margin: 0; /* No margin to remove browser default spacing */
+            padding: 0;  /* No padding to remove browser default spacing */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif; /* Overrides the earlier font for a more modern look */
+            margin: 0; 
+            padding: 0;
+            background-color: #000000;
+            color: #333;
+        }
+
+        nav.top-nav {
+            background-image: url('https://i.gifer.com/7Gt8.gif'); /* Path to your GIF */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+            background-size: cover; /* Cover the entire area of the nav, adjust as needed */
+            width: 100vw;  /* Ensures it spans the full width of the viewport */
+            height: 10%; /* Takes up 10% of the viewport height */
+            margin: 0;  /* Resets any default margin */
+            padding: 0;  /* Adjust padding as necessary but start with 0 to diagnose the issue */
+            background-color: #000;
+            display: flex; /* Uses flexbox for layout */
+            justify-content: center; /* Centers items horizontally */
+            align-items: center; /* Centers items vertically */
+            position: fixed; /* Fixed at the top of the viewport */
+            top: 0;
+            left: 0;  /* Ensure it starts from the very left edge */
+            z-index: 1000;
+            
+        }
+
+        nav.top-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 10px; /* Space out links */
+            font-weight: 500; /* Make it bold */
+        }
+
+        nav.top-nav a:hover {
+            background-color: #444; /* Darker background on hover */
+        }
+
+        header, main, footer {
+            width: 70%;
+            margin: 0 auto; /* Centers the content and provides a margin */
+        }
+
+
+        header {
+            padding-top: 10px;  /* top padding to push down the content */
+            padding-bottom: 20px; /* Space at the bottom */
+            width: 100%;
+            padding: 50px 20px 20px; /* Adjust top padding to push down under nav */
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-color: #000; /* Background color */
+            color: white;
+            text-align: center; /* Center text alignment */
+            margin-top: 60px; /* Space above the header */
+        }
+
+        main {
+            padding-top: 60px; /* Add space at the top */
+            min-height: 100vh; /* Minimum height to fill the viewport */
+            display: flex; /* Flexbox for layout */
+            flex-direction: column;  /* Stack children vertically */
+            align-items: center; /* Center items horizontally */
+            background-color: #000; /* Dark background for main area */
+            background-size: center;
+            color: white;
+            line-height: 1.5; /* Increases line height for readability */
+
+        }
+
+        h1, h2 {
+            font-weight: normal; /* Avoids bold headings for a lighter appearance */
+        }
+
+        ul, ol {
+            padding-left: 20px; /* Indents lists for better structure */
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none; /* Removes underline from links */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Adds underline on hover for better interactivity */
+        }
+
+
+</style>
+<body>
+    <header>
+            <nav class="top-nav">
+            <a href="{% url 'scanner' %}">Back To Scan</a></li>
+            <a href="{% url 'xss_page' %}">Cross Site Scripting (XSS)</a>
+            <a href="{% url 'csrf_page' %}">Cross Site Request Forgery (CSRF)</a>
+
+        </nav>
+    </header>
+    <header>
+            <!-- Page heading -->
+            <h1>SQL Injection Prevention</h1>
+        </header>
+        <main>
+            <section>
+                <!-- Section describing SQL Injection -->
+                <h2>What is SQL Injection?</h2>
+                <p>
+                    SQL Injection (SQLi) is a common attack vector that exploits vulnerabilities in an application's software
+                    by injecting malicious SQL statements into input fields for execution (e.g., data fields). This can allow
+                    attackers to manipulate or steal data from an organization's SQL databases.
+                </p>
+            </section>
+    
+            <section>
+                <!-- Section on how SQL Injection attacks occur -->
+                <h2>How SQL Injection Attacks Occur</h2>
+                <p>
+                    SQLi occurs when an attacker is able to insert a series of SQL statements into a 'query' that are then executed
+                    by a web application's database server. This often happens through unsanitized input fields where user inputs
+                    are not properly checked or escaped.
+                </p>
+            </section>
+    
+            <section>
+                <!-- Section on types of SQL Injection attacks -->
+                <h2>Types of SQL Injection Attacks</h2>
+                <ul>
+                    <li><strong>In-band SQLi:</strong> The most straightforward kind of attack, where the attacker uses the same communication channel to inject SQL code and gather results.</li>
+                    <li><strong>Inferential SQLi:</strong> Also known as Blind SQLi, this type of attack asks the database true or false questions and determines the answer based on the application's response.</li>
+                    <li><strong>Out-of-band SQLi:</strong> Data is transmitted over a protocol other than the one used to manage the database, such as HTTP.</li>
+                </ul>
+            </section>
+            <!-- Section on preventing SQL Injection attacks -->
+            <section>
+                <h2>Preventing SQL Injection Attacks</h2>
+                <p>
+                    Prevention strategies for SQL Injection primarily focus on proper input validation and query parameterization. Here are some effective practices:
+                </p>
+                <ol>
+                    <li><strong>Use Prepared Statements:</strong> With parameterized queries, it's impossible for an attacker to alter the intent of a query, even if SQL commands are inserted by an attacker.</li>
+                    <li><strong>Apply Whitelisting:</strong> Instead of rejecting bad patterns, identify and allow only necessary inputs to pass.</li>
+                    <li><strong>Employ Stored Procedures:</strong> While they are not completely immune, using them properly can help reduce SQL Injection risks.</li>
+                    <li><strong>Escape All User Inputs:</strong> Although not a primary defense, escaping inputs can help mitigate some forms of SQLi.</li>
+                </ol>
+            </section>
+            <!-- Section for further learning -->
+            <section>
+                <h2>Resources for Further Learning</h2>
+                <ul>
+                    <li><a href="https://owasp.org/www-community/attacks/SQL_Injection">OWASP SQL Injection Overview</a></li>
+                    <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">OWASP SQL Injection Prevention Cheat Sheet</a></li>
+                </ul>
+            </section>
+        </main>
+    </body>
+    </html>

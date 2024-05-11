@@ -1,0 +1,192 @@
+<!-- Author: Djena Siabdellah
+     Description: This is the home page for CodePulse, featuring a dynamic background and a typewriter effect 
+     that introduces the site and its purpose as a web vulnerability scanner. It includes navigation to other 
+     sections like registration and about pages. 
+
+     References
+    https://www.w3schools.com/howto/howto_js_typewriter.asp
+    https://www.w3schools.com/css/
+    https://i.gifer.com/7Ntk.gif 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Code Pulse</title>
+
+    <!-- I included the Font Awesome library for access to a wide range of icons, enhancing the visual design without additional graphics. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <style>
+        /* Merged and customized CSS here */
+        body, html {
+            margin: 0; /* this eliminates the default margin around these elements. */
+            padding: 0; /* this also eliminates the default padding around these elements. */
+            height: 100%; /* this ensures these elements take up the full height of the viewport. */
+            font-family: "Roboto", sans-serif; /* sets the default font for the entire webpage. */
+        }
+
+        /* this interesting styling specific to paragraphs intended to evoke a "robotic" or technical feel */
+        p.robotic {
+            font-family: 'Courier New', monospace; /* this uses a monospaced font similar to old computer output for a tech look. */
+            color: #b692bb; /* sets the text color to a distinctive purple. */
+            background-color: rgba(0, 0, 0, 0.5); /* this uses a semi-transparent black background for readability. */
+            padding: 10px; /* this adds space inside the paragraph around the text. */
+            border: 1px dashed #b692bb; /* creates a dashed border with the same purple color as the text. */
+            font-size: 24px; /* sets a larger font size for emphasis. */
+            line-height: 1.5; /* thid increases the space between lines of text to improve readability. */
+        }
+
+        /* this is a container for animated background and centered content, creating a visually appealing first impression. */
+        .pulse {
+            min-height: 100vh; /* container is at least as tall as the viewport. */
+            width: 100%; /* spans the full width of the viewport. */
+            background-color: #000; /* background color to black. */
+            background-image: url('https://i.gifer.com/7Ntk.gif'); /* set a dynamic GIF as the background. */
+            background-position: center; /* centers the background image in the container. */
+            background-repeat: no-repeat; /* prevents the background image from tiling. */
+            background-size: cover; /* background image covers the entire area of the container. */
+            color: #fff; /* text color to white for contrast against the dark background. */
+            padding: 8 8%; /* padding to the container to avoid text touching the edges. */
+            display: flex; /* Flexbox to provide a flexible container layout. */
+            flex-direction: column; /* elements vertically. */
+            justify-content: center; /* content vertically within the container. */
+            align-items: center; /* content horizontally within the container. */
+            position: fixed; /* Fixes the position of the container, so it does not move on scroll. */
+        }
+
+        /* this is the styling for the header, which contains navigation links. */
+        header {
+            z-index: 999; /* header is on top of other content. */
+            position: absolute; /* header within its nearest positioned ancestor. */
+            top: 0; /* to the top of the container. */
+            left: 0; /* to the left of the container. */
+            width: 100%; /* full width of the viewport. */
+            display: flex; /* flexible layout of child elements. */
+            justify-content: center; /* elements horizontally. */
+            align-items: center; /* elements vertically. */
+            padding: 15px 20px; /* padding inside the header for spacing around content. */
+            background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background for the header. */
+        }
+      
+        /* navigation list styling to remove default list styling and display horizontally */
+        nav ul {
+            list-style: none;  /* Removes list bullet points */
+            display: flex;  /* row instead of a column */
+            margin: 0;  /* removes default margin to control spacing explicitly */
+            padding: 0;  /* removes default padding for consistent spacing control */
+        }
+
+        /* Style for each navigation link */
+        nav ul li a {
+            color: #fff;  /* text color to white for visibility against darker backgrounds */
+            text-decoration: none;  /* removes underline from links for a cleaner look */
+            padding: 15px 35px;  /* padding to increase the clickable area, improving usability */
+            cursor: pointer;  /* changes cursor to pointer to indicate clickable links */
+        }
+
+        /* Hover effect for navigation links to improve interactivity and user experience */
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.4);  /* adds a light semi-transparent white background on hover */
+        }
+
+        /* Additional content styling */
+        .content {
+            z-index: 888;  /* lower z-index than header but ensures visibility above other elements */
+            width: 70%;  /* restricts the content width to 70% for better readability on wide screens */
+            margin-top: 50px;  /* Space from top, provides separation from the header */
+            display: none;  /* Default to not displayed  */
+        }
+
+        /* styling for active content to make it visible */
+        .content.active {
+            display: block;  /* changes display to block, making it visible when active */
+        }
+
+        /* header and typography styling */
+        h1 {
+            font-size: 48px;  /* large font size for main headings to attract attention */
+            text-align: center;  /* Centers the heading text horizontally */
+            margin-top: 0;  /* no top margin to keep the text close to the top of its container */
+            padding-top: 20px;  /* padding on top for spacing from any elements above */
+            width: 100%;  /* full width of its container */
+        }
+
+        /* styling for the typewriter effect */
+        #typewriter {
+            font-family: 'Courier New', monospace;  /* mimic typewriter-style printing */
+            color: #cf82a9;  /* Soft pink color for the typewriter text */
+            background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent black background for readability */
+            padding: 10px;  /* Padding around text for spacing within the element */
+            border: 1px dashed #cf82a9;  /* Dashed border using the same color as the text */
+            font-size: 20px;  /* readable font size for the typewriter text */
+            white-space: nowrap;  /* prevents text from wrapping to ensure typewriter animation stays in a single line */
+            overflow: hidden;  /* hides any overflowed text that doesn't fit in the designated area */
+            width: 100%;  /* ensures the typewriter effect spans the full width available */
+            margin: auto;  /* Automatically aligns the typewriter effect centrally */
+            border-radius: 5px;  /* rounded corners for a softer, more polished look */
+            word-wrap: break-word;  /* allows long words to break and wrap onto the next line */
+            white-space: pre-wrap;  /* maintains whitespace and wraps text as needed */
+            box-sizing: border-box;  /* includes padding and border in the width and height calculations */
+        }
+
+        /* Keyframe animation for the blinking caret in the typewriter effect */
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }  /* starts and ends with a transparent border color */
+            50% { border-color: #2ecc71; }  
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-btn"></div> <!-- Placeholder for menu button, potentially for a mobile responsive menu. -->
+        <nav>
+            <!-- Navigation section with list of links for site navigation. -->
+            <ul>
+                <li><a href="{% url 'about' %}">More Information</a></li> <!-- Navigation link to the 'About' page. -->
+                <li><a href="{% url 'register' %}">Get Started</a></li> <!-- Navigation link to the 'Register' page. -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content area featuring a dynamic, animated background and a typewriter effect for text display. -->
+    <main class="pulse">
+        <div class="content active">
+            <h1>Welcome to CodePulse</h1> <!-- main heading displayed prominently. -->
+            <p class="robotic" id="typewriter"></p> <!-- Paragraph for displaying animated text using a typewriter effect. -->
+        </div>
+    </main>
+    <!-- JavaScript for typewriter effect, dynamically displaying text in a styled paragraph. -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const text = "CodePulse is a web vulnerability scanner designed to help both developers and security professionals uncover potential security threats within their web applications efficiently. Our tool automates the process of scanning for common vulnerabilities such as SQL Injection, and XSS (Cross-Site Scripting), enabling you to proactively address security issues.";
+            const typewriter = document.getElementById('typewriter');
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    typewriter.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 70); // pace at which characters are added to the typewriter effect.
+                }
+            }
+
+            typeWriter(); // typewriter effect on as soon as the document is fully loaded.
+        });
+    </script>
+
+    <!-- JavaScript for responsive navigation menu toggle. -->
+    <script>
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector("nav");
+
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active"); // 'active' class on the menu button.
+            navigation.classList.toggle("active"); // 'active' class on the navigation, 
+        });
+    </script>
+</body>
+</html>
